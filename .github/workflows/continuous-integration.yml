@@ -1,0 +1,47 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  Linting:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install Dependencies
+        run: bun install
+      - name: Run ESLint
+        run: bun run lint --fix=false
+
+  TypeChecking:
+    name: Typecheck TypeScript code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install Dependencies
+        run: bun install
+      - name: Run Type Checking
+        run: bun run typecheck
+
+  Building:
+    name: Build code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install Dependencies
+        run: bun install
+      - name: Build Code
+        run: bun run build

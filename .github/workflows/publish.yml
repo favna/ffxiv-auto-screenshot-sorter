@@ -1,0 +1,44 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip-automatic-bump:
+        description: Whether to skip the automatic bumping of the package version
+        required: false
+        default: 'false'
+
+jobs:
+  publish:
+    name: Publish ffxiv-auto-screenshot-sorter
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'sapphiredev'
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+          token: ${{ secrets.BOT_TOKEN }}
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install Dependencies
+        run: bun install
+      - name: Configure Git
+        run: |
+          git remote set-url origin "https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git"
+          git config --local user.email "${GITHUB_EMAIL}"
+          git config --local user.name "${GITHUB_USER}"
+        env:
+          GITHUB_USER: github-actions[bot]
+          GITHUB_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Bump Versions and make release
+        run: |
+          if [ "${{ inputs.skip-automatic-bump }}" = "true" ]; then
+            yarn bump --skip-automatic-bump
+          else
+            yarn bump
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

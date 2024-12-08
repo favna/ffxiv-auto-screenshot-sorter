@@ -1,0 +1,12 @@
+name: ffxiv-auto-screenshot-sorter
+packagePath: .
+org: favna
+monoRepo: false
+commitMessageTemplate: 'chore(release): release {{new-version}}'
+tagTemplate: v{{new-version}}
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: favna/ffxiv-auto-screenshot-sorter
+gitHostVariant: github

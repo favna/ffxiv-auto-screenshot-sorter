@@ -1,0 +1,14 @@
+{
+	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/verbatim", "@sapphire/ts-config/bundler"],
+	"compilerOptions": {
+		"allowImportingTsExtensions": true,
+		"outDir": "dist",
+		"rootDir": "src",
+		"sourceMap": false,
+		"declaration": false,
+		"noEmit": true,
+		"declarationMap": false,
+		"incremental": false
+	},
+	"include": ["src"]
+}

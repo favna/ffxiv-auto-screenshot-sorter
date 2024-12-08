@@ -1,0 +1,60 @@
+name: Release Updater
+
+on:
+  release:
+    types:
+      - published
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release-updater:
+    name: Release updater
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-13, macos-14, ubuntu-latest, windows-latest]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Package binaries
+        run: |
+          case "${{ matrix.os }}" in
+            macos-13)
+              echo "Packaging for macOS 13"
+              bun run build:macos-intel
+              ;;
+            macos-14)
+              echo "Packaging for macOS 14"
+              bun run build:macos-arm
+              ;;
+            ubuntu-latest)
+              echo "Packaging for Ubuntu"
+              bun run build:linux
+              ;;
+            windows-latest)
+              echo "Packaging for Windows"
+              bun run build:windows
+              ;;
+            *)
+              echo "Unsupported OS"
+              exit 1
+              ;;
+          esac
+
+      - name: Upload prebuild asset
+        uses: ./actions/prebuildArtifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path: 'dist/*'
