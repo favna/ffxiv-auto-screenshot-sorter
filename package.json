@@ -10,7 +10,7 @@
 		"start": "bun run src/ffxiv-auto-screenshort-sorter.mts",
 		"lint": "eslint --fix",
 		"format": "prettier --write .",
-		"build": "concurrently --kill-others \"bun run build:node\" \"bun run build:linux\" \"bun run build:windows\" \"bun run build:macos-arm\" \"bun run build:macos-intel\"",
+		"build": "bun run build:node && bun run build:linux && bun run build:windows && bun run build:macos-arm && bun run build:macos-intel",
 		"build:node": "tsc",
 		"build:linux": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --target=bun-linux-x64-modern --outfile dist/ffxiv-auto-screenshort-sorter-linux-x64-modern",
 		"build:windows": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --target=bun-windows-x64-modern --outfile dist/ffxiv-auto-screenshort-sorter-windows-x64-modern",
