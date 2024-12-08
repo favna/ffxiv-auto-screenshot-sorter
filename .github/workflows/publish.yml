@@ -13,7 +13,6 @@ jobs:
   publish:
     name: Publish ffxiv-auto-screenshot-sorter
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'sapphiredev'
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4
