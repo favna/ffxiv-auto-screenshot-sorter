@@ -7,9 +7,7 @@ on:
 
 permissions:
   issues: write
-  contents: write
-  attestations: write
-  id-token: write
+  pull-requests: write
 
 jobs:
   label_sync:
