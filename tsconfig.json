@@ -8,7 +8,8 @@
 		"declaration": false,
 		"noEmit": true,
 		"declarationMap": false,
-		"incremental": false
+		"incremental": false,
+		"skipLibCheck": true
 	},
 	"include": ["src"]
 }
