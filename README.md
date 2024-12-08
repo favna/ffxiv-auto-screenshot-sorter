@@ -46,8 +46,8 @@ these folders. For example you may get a structure like this:
 
 ## Quitting the program after launching it
 
-Because there is no visual element or tray icon for this program, you can quit it through the Task Manager provided by
-your operating system. This can be one of Windows Task Manager, MacOS Activity Monitor, or Linux [`htop`][htop].
+When the program launches a terminal window should get opened in which you can view logging output. You can quit the
+program by quitting the terminal window.
 
 ## Recommended setup for Windows users
 
@@ -57,4 +57,3 @@ binary.
 
 [releases]: https://github.com/favna/ffxiv-auto-screenshot-sorter/releases
 [XIVLauncher]: https://goatcorp.github.io
-[htop]: https://htop.dev
