@@ -1,0 +1,40 @@
+name: Manual Asset Updater
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: The release tag of which the assets should be updated
+        required: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  release-updater:
+    name: Release updater
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Package binaries
+        run: bun run build
+
+      - name: Upload prebuild asset
+        uses: ./actions/prebuildArtifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path: 'dist/*'
+          release-tag: ${{ github.event.inputs.tag }}
