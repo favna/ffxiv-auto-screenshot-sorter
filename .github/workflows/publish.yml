@@ -5,8 +5,9 @@ on:
     inputs:
       skip-automatic-bump:
         description: Whether to skip the automatic bumping of the package version
+        type: boolean
         required: false
-        default: 'false'
+        default: false
 
 jobs:
   publish:
