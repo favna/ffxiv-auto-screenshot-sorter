@@ -44,4 +44,11 @@ these folders. For example you may get a structure like this:
     screenshot-4.png
 ```
 
+## Recommended setup for Windows users
+
+Windows users can use [XIVLauncher] to modify the launch of their FFXIV client. One of the options of [XIVLauncher] is
+to automatically start a program when the game is launched. This can be used to start the `ffxiv-auto-screenshot-sorter`
+binary.
+
 [releases]: https://github.com/favna/ffxiv-auto-screenshot-sorter/releases
+[XIVLauncher]: https://goatcorp.github.io
