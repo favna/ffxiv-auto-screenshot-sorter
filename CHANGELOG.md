@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.0.2](https://github.com/favna/ffxiv-auto-screenshot-sorter/compare/v1.0.1...v1.0.2) - (2025-03-02)
+
+## 🐛 Bug Fixes
+
+- Wrap code in async iife ([9f8f281](https://github.com/favna/ffxiv-auto-screenshot-sorter/commit/9f8f2813eabddf5ba2ebafc5b06ff0b43e58a3f0))
+
 # [1.0.0](https://github.com/favna/ffxiv-auto-screenshot-sorter/tree/v1.0.0) - (2024-12-08)
 
 ## 📝 Documentation
