@@ -12,7 +12,7 @@
 		"format": "prettier --write .",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run",
-		"build": "bun run build:node && bun run build:linux && bun run build:windows && bun run build:macos-arm && bun run build:macos-intel",
+		"build": "bun run build:node && bun run build:linux && bun run build:macos-arm && bun run build:macos-intel",
 		"build:node": "tsc",
 		"build:linux": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap --bytecode --target=bun-linux-x64-modern --outfile dist/ffxiv-auto-screenshort-sorter-linux-x64-modern",
 		"build:windows": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap --bytecode --target=bun-windows-x64-modern --outfile dist/ffxiv-auto-screenshort-sorter-windows-x64-modern --windows-hide-console --windows-icon=assets/windows-icon.ico",

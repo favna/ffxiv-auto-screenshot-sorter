@@ -13,8 +13,8 @@ permissions:
   contents: write
 
 jobs:
-  release-updater:
-    name: Release updater
+  release-updater-linux-macos:
+    name: Release updater Linux and MacOS
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -28,6 +28,30 @@ jobs:
 
       - name: Package binaries
         run: bun run build
+
+      - name: Upload prebuild asset
+        uses: ./actions/prebuildArtifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path: 'dist/*'
+
+  release-updater-windows:
+    name: Release updater Windows
+    needs: release-updater-linux-macos
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Package binaries
+        run: bun run build:windows
 
       - name: Upload prebuild asset
         uses: ./actions/prebuildArtifacts
