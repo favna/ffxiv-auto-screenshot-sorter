@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.1](https://github.com/favna/ffxiv-auto-screenshot-sorter/compare/v1.1.0...v1.1.1) - (2025-05-04)
+
+## 🐛 Bug Fixes
+
+- Do not try to create target direcotry if it already exists ([80c645d](https://github.com/favna/ffxiv-auto-screenshot-sorter/commit/80c645d8feee158bb3949733251fb8b6c3573dd5))
+
 # [1.1.0](https://github.com/favna/ffxiv-auto-screenshot-sorter/compare/v1.0.2...v1.1.0) - (2025-03-02)
 
 ## 🚀 Features

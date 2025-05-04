@@ -1,5 +1,5 @@
 {
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"name": "ffxiv-auto-screenshort-sorter",
 	"main": "dist/ffxiv-auto-screenshort-sorter.mjs",
 	"module": "dist/ffxiv-auto-screenshort-sorter.mjs",
