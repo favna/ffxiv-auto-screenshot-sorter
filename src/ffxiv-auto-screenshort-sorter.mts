@@ -1,10 +1,19 @@
 import { Logger } from '@skyra/logger';
-import { watch, type WatchEventType } from 'node:fs';
+import { existsSync, watch, type WatchEventType } from 'node:fs';
 import { mkdir, rename, stat } from 'node:fs/promises';
 import { homedir, platform } from 'node:os';
 import { join, resolve } from 'node:path';
 import process from 'node:process';
 import { setTimeout } from 'node:timers/promises';
+
+class FSError extends Error {
+	public code: string;
+
+	public constructor(message: string, code: string) {
+		super(message);
+		this.code = code;
+	}
+}
 
 const logger = new Logger({ level: Logger.Level.Info });
 
@@ -61,7 +70,12 @@ switch (platform()) {
 				const yearMonth = `${creationDate.getFullYear()}-${String(creationDate.getMonth() + 1).padStart(2, '0')}`;
 				const targetDir = resolve(sortedDir, yearMonth);
 
-				await mkdir(targetDir, { recursive: true });
+				const targetDirExists = existsSync(targetDir);
+
+				if (!targetDirExists) {
+					await mkdir(targetDir, { recursive: true });
+				}
+
 				await rename(filePath, resolve(targetDir, filename));
 				logger.info(`Moved ${filename} to ${targetDir}`);
 			}
@@ -102,15 +116,6 @@ switch (platform()) {
 			}
 		}
 	});
-
-	class FSError extends Error {
-		public code: string;
-
-		public constructor(message: string, code: string) {
-			super(message);
-			this.code = code;
-		}
-	}
 
 	process.on('SIGINT', () => {
 		watcher.close();
