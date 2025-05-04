@@ -39,9 +39,9 @@ jobs:
       - name: Bump Versions and make release
         run: |
           if [ "${{ inputs.skip-automatic-bump }}" = "true" ]; then
-            yarn bump --skip-automatic-bump
+            bun run bump --skip-automatic-bump
           else
-            yarn bump
+            bun run bump
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
