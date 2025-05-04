@@ -14,10 +14,10 @@
 		"check-update": "cliff-jumper --dry-run",
 		"build": "bun run build:node && bun run build:linux && bun run build:macos-arm && bun run build:macos-intel",
 		"build:node": "tsc",
-		"build:linux": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap --bytecode --target=bun-linux-x64-modern --outfile dist/ffxiv-auto-screenshort-sorter-linux-x64-modern",
-		"build:windows": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap --bytecode --target=bun-windows-x64-modern --outfile dist/ffxiv-auto-screenshort-sorter-windows-x64-modern --windows-hide-console --windows-icon=assets/windows-icon.ico",
-		"build:macos-arm": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap --bytecode --target=bun-darwin-arm64 --outfile dist/ffxiv-auto-screenshort-sorter-macos-arm",
-		"build:macos-intel": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap --bytecode --target=bun-darwin-x64 --outfile dist/ffxiv-auto-screenshort-sorter-macos-intel"
+		"build:linux": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap=inline --bytecode --target=bun-linux-x64-modern --outfile dist/ffxiv-auto-screenshort-sorter-linux-x64-modern",
+		"build:windows": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap=inline --bytecode --target=bun-windows-x64-modern --outfile dist/ffxiv-auto-screenshort-sorter-windows-x64-modern --windows-hide-console --windows-icon=./assets/windows-icon.ico",
+		"build:macos-arm": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap=inline --bytecode --target=bun-darwin-arm64 --outfile dist/ffxiv-auto-screenshort-sorter-macos-arm",
+		"build:macos-intel": "bun build src/ffxiv-auto-screenshort-sorter.mts --compile --minify --sourcemap=inline --bytecode --target=bun-darwin-x64 --outfile dist/ffxiv-auto-screenshort-sorter-macos-intel"
 	},
 	"devDependencies": {
 		"@actions/core": "^1.11.1",
@@ -27,15 +27,15 @@
 		"@sapphire/eslint-config": "^5.0.5",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/bun": "^1.2.4",
-		"@types/node": "^22.13.8",
+		"@types/bun": "^1.2.12",
+		"@types/node": "^22.15.3",
 		"concurrently": "^9.1.2",
-		"eslint": "^9.21.0",
-		"eslint-config-neon": "^0.2.4",
-		"eslint-plugin-prettier": "^5.2.3",
+		"eslint": "^9.26.0",
+		"eslint-config-neon": "^0.2.7",
+		"eslint-plugin-prettier": "^5.3.1",
 		"lodash.merge": "^4.6.2",
-		"prettier": "^3.5.2",
-		"typescript": "^5.8.2"
+		"prettier": "^3.5.3",
+		"typescript": "^5.8.3"
 	},
 	"dependencies": {
 		"@skyra/logger": "^2.0.3"
