@@ -70,6 +70,7 @@ switch (platform()) {
 				const yearMonth = `${creationDate.getFullYear()}-${String(creationDate.getMonth() + 1).padStart(2, '0')}`;
 				const targetDir = resolve(sortedDir, yearMonth);
 
+				// eslint-disable-next-line n/no-sync
 				const targetDirExists = existsSync(targetDir);
 
 				if (!targetDirExists) {
