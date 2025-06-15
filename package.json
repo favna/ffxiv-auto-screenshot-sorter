@@ -28,7 +28,7 @@
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
 		"@types/bun": "^1.2.12",
-		"@types/node": "^22.15.3",
+		"@types/node": "^24.0.0",
 		"concurrently": "^9.1.2",
 		"eslint": "^9.26.0",
 		"eslint-config-neon": "^0.2.7",
