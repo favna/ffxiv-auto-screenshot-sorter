@@ -22,7 +22,7 @@
 	"devDependencies": {
 		"@actions/core": "^1.11.1",
 		"@actions/github": "^6.0.0",
-		"@actions/glob": "^0.5.0",
+		"@actions/glob": "^0.7.0",
 		"@favware/cliff-jumper": "^6.0.0",
 		"@sapphire/eslint-config": "^5.0.5",
 		"@sapphire/prettier-config": "^2.0.0",
@@ -31,7 +31,7 @@
 		"@types/node": "^24.0.0",
 		"concurrently": "^9.1.2",
 		"eslint": "^9.26.0",
-		"eslint-config-neon": "^0.2.7",
+		"eslint-config-neon": "^0.5.0",
 		"eslint-plugin-prettier": "^5.3.1",
 		"lodash.merge": "^4.6.2",
 		"prettier": "^3.5.3",
