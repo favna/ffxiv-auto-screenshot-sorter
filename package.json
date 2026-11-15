@@ -24,7 +24,7 @@
 		"@actions/github": "^6.0.0",
 		"@actions/glob": "^0.5.0",
 		"@favware/cliff-jumper": "^6.0.0",
-		"@sapphire/eslint-config": "^5.0.5",
+		"@sapphire/eslint-config": "^6.0.0",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
 		"@types/bun": "^1.2.12",
